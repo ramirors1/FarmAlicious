@@ -10,7 +10,7 @@ export const FarmAlicious = () => (
   <>
     <Route
       render={() => {  //determines which compponent should be rendered
-        if (localStorage.getItem("farmAlicious_user")) {  //if there is something in localStorage continue with function, otherwise redirect to the else statement
+        if (localStorage.getItem("farmalicious_user")) {  //if there is something in localStorage continue with function, otherwise redirect to the else statement
           return (
             <>
               <NavBar />
