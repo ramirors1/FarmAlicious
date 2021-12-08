@@ -1,0 +1,25 @@
+.farmer {
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+.farmer--single {
+    width: 40em;
+    margin: 7em auto;
+}
+
+.btn--firefarmer{
+    margin: 1em 0 0 0;
+}
+
+.icon--person {
+    width: 50px;
+    height: 50px;
+}
+
+.farmer:hover {
+    animation: jiggle 0.2s;
+    transition: .4s all ease;
+    z-index: 11;
+    box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4)
+}
