@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { FarmAlicious } from "./components/FarmAlicious";
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <FarmAlicious />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
