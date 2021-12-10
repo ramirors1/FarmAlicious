@@ -55,6 +55,7 @@ export const FarmersList = () => {
                             <div>Quantity: {farmerPost.quantity}</div>
                              <div>lbs of {farmerPost.product?.name}</div>
                              <div>Cost is ${farmerPost.price} per lbs.</div>
+                             <div>You can contact me at: {farmerPost.user?.email}</div>
                              <div></div><button onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
                             
                             </div>
