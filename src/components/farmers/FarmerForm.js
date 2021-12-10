@@ -1,18 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
-export const FarmerPost = () => {
+export const FarmerForm = () => {
 
-    const [post, updatePost] = useState();
+    const [farmerPost, updateFarmerPost] = useState({});
+    const [products, setProducts] = useState([]);
+
     const history = useHistory()
-    const savePost = (event) => {
+    const saveFarmerPost = (event) => {
         event.preventDefault()
-        const newPost = {
-            productId: post.productId,
-            quantity: 0,
-            price: "",
-            // farmerId: parseInt(localStorage.getItem("farmalicious_farmer")),
-            farmerId: 1,
+        const newFarmerPost = {
+            productId: farmerPost.productId,
+            quantity: parseInt(farmerPost.quantity),
+            price: parseInt(farmerPost.price),
+            userId: parseInt(localStorage.getItem("farmalicious_user"))
         }
 
         const fetchOption = {
@@ -20,57 +21,101 @@ export const FarmerPost = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newTicket)
+            body: JSON.stringify(newFarmerPost)
         }
     return fetch("http://localhost:8088/farmerPosts", fetchOption)
         .then(() => {
-          history.push("/posts")  
+          history.push("/farmers")  
         })    
     }    
+
+    useEffect(
+        () => {
+        return fetch("http://localhost:8088/products")
+        .then(res => res.json())
+        .then((productsFromAPI) => {
+            setProducts(productsFromAPI)
+})},
+        []
+    )
 
     return (
         <>
         <form className="farmerForm">
-            <h2 className="farmerForm__title">New Service Ticket</h2>
+            <h2 className="farmerForm__title">New Crop to Post</h2>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="description">Description:</label>
+
+                <div className="farmerFarm-group">
+                    <label htmlFor="product">Product:</label>
+                    <select
+                    onChange={
+                        (evt) => {
+                            const copy = {...farmerPost}
+                            copy.productId = evt.target.value
+                            updateFarmerPost(copy)
+                        }
+  
+                    }>
+                    <option key="product" value={0}>Choose a product</option>
+  
+                    {
+                    products.map(
+                        (product) => {
+                                
+                               return <option key="product" value={product.id}>
+                                {product.name}
+                                </option>
+                        }
+                    )
+                    }
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="farmerForm-group">
+                    <label htmlFor="quantity">Quantity:</label>
                     <input
                     onChange={
                         (evt) => {
-                            const copy = {...ticket}
-                            copy.description = evt.target.value
-                            updateTicket(copy)
+                            const copy = {...farmerPost}
+                            copy.quantity = evt.target.value
+                            updateFarmerPost(copy)
                         }
                     }
 
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Brief description of problem"
+                        placeholder="Amount"
                         />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Emergency:</label>
-                    <input type="checkbox"
-                                        onChange={
-                                            (evt) => {
-                                                const copy = {...post}
-                                                copy.emergency = evt.target.value
-                                                updateTicket(copy)
-                                            }
-                                        }
-                    
+                <div className="farmerForm-group">
+                    <label htmlFor="price">Price:</label>
+                    <input
+                    onChange={
+                        (evt) => {
+                            const copy = {...farmerPost}
+                            copy.price = evt.target.value
+                            updateFarmerPost(copy)
+                        }
+                    }
+
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Price"
                         />
                 </div>
             </fieldset>
-            <button onClick={savePost} className="btn btn-primary">
+            <button onClick={saveFarmerPost} className="btn btn-primary">
                 Submit Post
             </button>
         </form>
-        </>
+    </>
     )
 
-}    
+}     
+
+

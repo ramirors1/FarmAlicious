@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { FarmersList } from "./farmers/FarmersList";
 import { CustomersList } from "./customers/CustomersList";
-// import { EmployeeList } from "./employees/EmployeesList";
+import { FarmerForm } from "./farmers/FarmerForm";
 // import { Employee } from "./employees/Employee";
 // import { TicketList } from "./serviceTickets/TicketList";
 // import { Ticket } from "./serviceTickets/Ticket";
@@ -23,6 +23,9 @@ export const ApplicationViews = () => {
                 <CustomersList />
             </Route>
 
+            <Route exact path="/farmerPost/create">
+                <FarmerForm />
+            </Route>
 
             {/* <Route path="/employee/create">
             <HireForm />
