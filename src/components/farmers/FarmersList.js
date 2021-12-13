@@ -31,10 +31,10 @@ export const FarmersList = () => {
         []
     )
             const deletePost = (id) => {
-                fetch(`http://localhost:8088/farmersPosts/${id}`, {
+                return fetch(`http://localhost:8088/farmerPosts/${id}`, {
                 method: "DELETE"
-            })
-            getAllPosts()
+            }) .then(getAllPosts)
+            
 
         }
 
@@ -56,7 +56,7 @@ export const FarmersList = () => {
                              <div>lbs of {farmerPost.product?.name}</div>
                              <div>Cost is ${farmerPost.price} per lbs.</div>
                              <div>You can contact me at: {farmerPost.user?.email}</div>
-                             <div></div><button onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
+                             <div></div><button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
                             
                             </div>
                     }
