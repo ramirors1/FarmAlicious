@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom"
 export const FarmersList = () => {
     const [farmers, changeFarmer] = useState([])
     const [farmerPosts, updatePosts] = useState([])
+    const [user, setUser]= useState(0)
     const history = useHistory()
     const getAllPosts = () => {
         return fetch("http://localhost:8088/farmerPosts?_expand=user&_expand=product")
@@ -20,10 +21,11 @@ export const FarmersList = () => {
                 .then((farmersFromAPI) => {
                     changeFarmer(farmersFromAPI)
                 })
+                .then(setUser(localStorage.getItem("farmalicious_user")))
         },
         []
     )
-
+        
     useEffect(
         () => {getAllPosts()
                 
@@ -49,16 +51,30 @@ export const FarmersList = () => {
             {
                 farmerPosts.map(
                     (farmerPost) => {
-                        return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
+                        if(farmerPost.userId === parseInt(user)){
+                            return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
                             <div>Quantity: {farmerPost.quantity}</div>
                              <div>lbs of {farmerPost.product?.name}</div>
                              <div>Cost is ${farmerPost.price} per lbs.</div>
                              <div>You can contact me at: {farmerPost.user?.email}</div>
-                             <div></div><button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
+                             <button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
                             
                             </div>
+                        }
+                        else{
+                            return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
+                            <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
+                            <div>Item for sale: {farmerPost.product?.name}</div>
+                            <div>Quantity: {farmerPost.quantity}</div>
+                             <div>lbs of {farmerPost.product?.name}</div>
+                             <div>Cost is ${farmerPost.price} per lbs.</div>
+                             <div>You can contact me at: {farmerPost.user?.email}</div>
+                            
+                            </div>
+                        }
+                        
                     }
                 )
                 
