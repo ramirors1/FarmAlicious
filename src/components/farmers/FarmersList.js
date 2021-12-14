@@ -68,9 +68,9 @@ export const FarmersList = () => {
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
                             <div>Quantity: {farmerPost.quantity}</div>
-                             <div>lbs of {farmerPost.product?.name}</div>
-                             <div>Cost is ${farmerPost.price} per lbs.</div>
-                             <div>You can contact me at: {farmerPost.user?.email}</div>
+                            <div>lbs of {farmerPost.product?.name}</div>
+                            <div>Cost is ${farmerPost.price} per lbs.</div>
+                            <div>You can contact me at: {farmerPost.user?.email}</div>
                             
                             </div>
                         }
@@ -78,7 +78,7 @@ export const FarmersList = () => {
                     }
                 )
                 
-                    }
+            }
                 
             
         </>
