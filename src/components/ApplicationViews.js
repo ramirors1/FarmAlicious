@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import { FarmersList } from "./farmers/FarmersList";
 import { CustomersList } from "./customers/CustomersList";
 import { FarmerForm } from "./farmers/FarmerForm";
-// import { Employee } from "./employees/Employee";
+import { CustomerForm } from "./customers/CustomerForm";
 // import { TicketList } from "./serviceTickets/TicketList";
 // import { Ticket } from "./serviceTickets/Ticket";
 // import { TicketForm } from "./serviceTickets/TicketForm";
@@ -23,19 +23,19 @@ export const ApplicationViews = () => {
                 <FarmersList />
             </Route>
 
-            <Route exact path="/customers">
-                <CustomersList />
-            </Route>
-
             <Route exact path="/farmerPost/create">
                 <FarmerForm />
             </Route>
 
-            {/* <Route path="/employee/create">
-            <HireForm />
+            <Route exact path="/customers">
+                <CustomersList />
             </Route>
 
-            <Route exact path="/employees">
+            <Route path="/customerRequest/create">
+            <CustomerForm />
+            </Route>
+
+            {/* <Route exact path="/employees">
                 <EmployeeList />
             </Route>
 
@@ -54,7 +54,6 @@ export const ApplicationViews = () => {
             <Route exact path="/tickets/:ticketId(\d+)">
                 <Ticket />
             </Route> */} 
-
 
         </>
     )
