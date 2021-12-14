@@ -15,6 +15,10 @@ export const ApplicationViews = () => {
         <h1>FarmAlicious</h1>
             {/* will render customer's list when customer link is clicked from the NavBar  */}
             
+            {/* <Route exact path="/">  
+                <Home />
+            </Route> */}
+
             <Route exact path="/farmers">  
                 <FarmersList />
             </Route>
