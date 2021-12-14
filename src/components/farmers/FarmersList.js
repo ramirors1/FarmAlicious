@@ -51,7 +51,7 @@ export const FarmersList = () => {
             {
                 farmerPosts.map(
                     (farmerPost) => {
-                        if(farmerPost.userId === parseInt(user)){
+                        if(farmerPost.userId === parseInt(user)){  //checkes for cuttent user, if so will dispay card with delete button for their post only
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
@@ -63,7 +63,7 @@ export const FarmersList = () => {
                             
                             </div>
                         }
-                        else{
+                        else{  //if not current user, will display post without delete button
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
