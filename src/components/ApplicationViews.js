@@ -4,7 +4,7 @@ import { FarmersList } from "./farmers/FarmersList";
 import { CustomersList } from "./customers/CustomersList";
 import { FarmerForm } from "./farmers/FarmerForm";
 import { CustomerForm } from "./customers/CustomerForm";
-// import { TicketList } from "./serviceTickets/TicketList";
+import { FarmerPost } from "./farmers/Farmer";
 // import { Ticket } from "./serviceTickets/Ticket";
 // import { TicketForm } from "./serviceTickets/TicketForm";
 // import { HireForm } from "./employees/HireEmployee";
@@ -25,6 +25,10 @@ export const ApplicationViews = () => {
 
             <Route exact path="/farmerPost/create">
                 <FarmerForm />
+            </Route>
+
+            <Route exact path="/farmers/:farmerId(\d+)">
+                <FarmerPost />
             </Route>
 
             <Route exact path="/customers">

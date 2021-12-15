@@ -39,6 +39,15 @@ export const FarmersList = () => {
             
 
         }
+        //    const editPost = () => {
+        //     return fetch(`http://localhost:8088/farmerPosts/${id}`, {
+
+        //     })
+        //     .then(res => res.json())
+        //     .then((data) => {
+        //         updatePosts(data)
+        //     })
+        //    } 
 
     return (
         <>
@@ -55,10 +64,11 @@ export const FarmersList = () => {
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
-                            <div>Quantity: {farmerPost.quantity}</div>
-                             <div>lbs of {farmerPost.product?.name}</div>
-                             <div>Cost is ${farmerPost.price} per lbs.</div>
-                             <div>You can contact me at: {farmerPost.user?.email}</div>
+                            <div>Amount: {farmerPost.quantity} lbs.</div>
+                             {/* <div>lbs of {farmerPost.product?.name}</div> */}
+                             <div>Price is ${farmerPost.price} per lbs.</div>
+                             <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
+                             {/* <button type="submit" onClick={() => {editPost(farmerPost.id)}}>Edit</button> */}
                              <button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
                             
                             </div>
@@ -67,10 +77,10 @@ export const FarmersList = () => {
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
                             <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
-                            <div>Quantity: {farmerPost.quantity}</div>
-                            <div>lbs of {farmerPost.product?.name}</div>
-                            <div>Cost is ${farmerPost.price} per lbs.</div>
-                            <div>You can contact me at: {farmerPost.user?.email}</div>
+                            <div>Amount: {farmerPost.quantity} lbs.</div>
+                            {/* <div>lbs of {farmerPost.product?.name}</div> */}
+                            <div>Price is ${farmerPost.price} per lbs.</div>
+                            <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
                             
                             </div>
                         }
