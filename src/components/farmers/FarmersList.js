@@ -39,6 +39,15 @@ export const FarmersList = () => {
             
 
         }
+        //    const editPost = () => {
+        //     return fetch(`http://localhost:8088/farmerPosts/${id}`, {
+
+        //     })
+        //     .then(res => res.json())
+        //     .then((data) => {
+        //         updatePosts(data)
+        //     })
+        //    } 
 
     return (
         <>
@@ -53,24 +62,25 @@ export const FarmersList = () => {
                     (farmerPost) => {
                         if(farmerPost.userId === parseInt(user)){  //checkes for cuttent user, if so will dispay card with delete button for their post only
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
-                            <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
+                            <div>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</div> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
-                            <div>Quantity: {farmerPost.quantity}</div>
-                             <div>lbs of {farmerPost.product?.name}</div>
-                             <div>Cost is ${farmerPost.price} per lbs.</div>
-                             <div>You can contact me at: {farmerPost.user?.email}</div>
+                            <div>Amount: {farmerPost.quantity} lbs.</div>
+                             {/* <div>lbs of {farmerPost.product?.name}</div> */}
+                             <div>Price is ${farmerPost.price} per lbs.</div>
+                             <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
+                             <button><Link to={`/farmerPosts/${farmerPost.id}`}> Edit</Link></button> 
                              <button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
                             
                             </div>
                         }
                         else{  //if not current user, will display post without delete button
                             return <div key={`farmerPost--${farmerPost.farmer?.id}`}>
-                            <Link to={`/farmerPosts/${farmerPost.id}`}>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</Link> 
+                            <div>{farmerPost.user?.firstName} { farmerPost.user?.lastName}</div> 
                             <div>Item for sale: {farmerPost.product?.name}</div>
-                            <div>Quantity: {farmerPost.quantity}</div>
-                            <div>lbs of {farmerPost.product?.name}</div>
-                            <div>Cost is ${farmerPost.price} per lbs.</div>
-                            <div>You can contact me at: {farmerPost.user?.email}</div>
+                            <div>Amount: {farmerPost.quantity} lbs.</div>
+                            {/* <div>lbs of {farmerPost.product?.name}</div> */}
+                            <div>Price is ${farmerPost.price} per lbs.</div>
+                            <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
                             
                             </div>
                         }

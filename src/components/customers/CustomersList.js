@@ -50,8 +50,9 @@ export const CustomersList = () => {
                     (customerRequest) => {
                         if(customerRequest.userId === parseInt(user)){  //checkes for current user, if so will dispay card with delete button for their post only
                             return <div key={`customerRequest--${customerRequest.customer?.id}`}>
-                            <Link to={`/customerRequests/${customerRequest.id}`}>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</Link> 
+                            <div>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</div>
                             <div>Wanting to purchase: {customerRequest.product?.name}</div>
+                            <div>I can be reached at: {customerRequest.user?.email}</div>
                              {/* <div>lbs of {farmerPost.product?.name}</div> */}
                              {/* <div>Cost is ${farmerPost.price} per lbs.</div> */}
                              <div></div><button onClick={() => {deleteRequest(customerRequest.id)}}>Delete</button>
@@ -62,8 +63,9 @@ export const CustomersList = () => {
                 
                         else{
                             return <div key={`customerRequest--${customerRequest.customer?.id}`}>
-                            <Link to={`/customerRequests/${customerRequest.id}`}>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</Link> 
+                            <div>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</div>
                             <div>Wanting to purchase: {customerRequest.product?.name}</div>
+                            <div>I can be reached at: <Link>{customerRequest.user?.email}</Link></div>
                             {/* <div>lbs of {farmerPost.product?.name}</div> */}
                             {/* <div>Cost is ${farmerPost.price} per lbs.</div> */}
                         
