@@ -20,7 +20,6 @@ export const FarmerPost = () => {
         },
         [ farmerPostId ]  // Above function runs when the value of ticketId change
     )
-
     // Fetch all employees
     useEffect(
         () => {
@@ -30,7 +29,6 @@ export const FarmerPost = () => {
         },
         []  // Empty dependency array only reacts to JSX initial rendering
     )
-
     // Function to invoke when a farmer is chosen from <select> element
     const updateFarmerPost = (changeEvent) => {
         changeEvent.preventDefault()
@@ -41,7 +39,6 @@ export const FarmerPost = () => {
             price: farmerPosts.price,//(changeEvent.targer.value), //(farmerPosts.price),
             userId: parseInt(localStorage.getItem("farmalicious_user"))
         }
-        
         // Perform the PUT HTTP request to replace the resource
         fetch(`http://localhost:8088/farmerPosts/${farmerPostId}`, {
             method: "PUT",
@@ -54,16 +51,6 @@ export const FarmerPost = () => {
                 history.push("/farmers")
             })
     }
-//     useEffect(
-//         () => {
-//         return fetch("http://localhost:8088/products")
-//         .then(res => res.json())
-//         .then((productsFromAPI) => {
-//             setProducts(productsFromAPI)
-// })},
-//         []
-//     )
-
 
     return (
         <>
@@ -74,29 +61,6 @@ export const FarmerPost = () => {
                 <div className="farmerFarm-group">
                     <label htmlFor="product">Product: </label>
                     {farmerPosts.product?.name}
-
-                    {/* <select
-                    onChange={
-                        (evt) => {
-                            const copy = {...farmerPosts}
-                            copy.productId = evt.target.value
-                            updateFarmerPost(copy)
-                        }
-  
-                    }>
-                    <option key="product" value={0}>Choose a product</option>
-  
-                    {
-                    products.map(
-                        (product) => {
-                                
-                               return <option key="product" value={product.id}>
-                                {product.name}
-                                </option>
-                        }
-                    )
-                    }
-                    </select> */}
                 </div>
             </fieldset>
             <fieldset>
