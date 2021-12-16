@@ -52,6 +52,7 @@ export const CustomersList = () => {
                             <div>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</div>
                             <div>Wanting to purchase: {customerRequest.product?.name}</div>
                             <div>I can be reached at: {customerRequest.user?.email}</div>
+                            <button><Link to={`/customerRequests/${customerRequest.id}`}> Edit</Link></button> 
                             <div></div><button onClick={() => {deleteRequest(customerRequest.id)}}>Delete</button>
                             </div>
                         }    

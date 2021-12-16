@@ -20,7 +20,7 @@ export const FarmerPost = () => {
         },
         [ farmerPostId ]  // Above function runs when the value of ticketId change
     )
-    // Fetch all employees
+    // Fetch all farmers
     useEffect(
         () => {
             fetch(`http://localhost:8088/farmers`)
@@ -58,7 +58,7 @@ export const FarmerPost = () => {
             <h2 className="farmerForm__title">New Crop to Post</h2>
             <fieldset>
 
-                <div className="farmerFarm-group">
+                <div className="farmerForm-group">
                     <label htmlFor="product">Product: </label>
                     {farmerPosts.product?.name}
                 </div>

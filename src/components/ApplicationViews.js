@@ -5,7 +5,7 @@ import { CustomersList } from "./customers/CustomersList";
 import { FarmerForm } from "./farmers/FarmerForm";
 import { CustomerForm } from "./customers/CustomerForm";
 import { FarmerPost } from "./farmers/FarmerPost";
-// import { Ticket } from "./serviceTickets/Ticket";
+import { CustomerRequest } from "./customers/Customer";
 // import { TicketForm } from "./serviceTickets/TicketForm";
 // import { HireForm } from "./employees/HireEmployee";
 
@@ -33,6 +33,11 @@ export const ApplicationViews = () => {
             <Route path="/customerRequest/create">
                 <CustomerForm />
             </Route>
+
+            <Route exact path="/customerRequests/:customerRequestId(\d+)">
+                <CustomerRequest />
+            </Route>
+ 
         </>
     )
 }
