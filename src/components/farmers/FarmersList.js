@@ -36,27 +36,13 @@ export const FarmersList = () => {
                 return fetch(`http://localhost:8088/farmerPosts/${id}`, {
                 method: "DELETE"
             }) .then(getAllPosts)
-            
-
         }
-        //    const editPost = () => {
-        //     return fetch(`http://localhost:8088/farmerPosts/${id}`, {
 
-        //     })
-        //     .then(res => res.json())
-        //     .then((data) => {
-        //         updatePosts(data)
-        //     })
-        //    } 
-
-    return (
+        return (
         <>
             <div>
                 <button onClick={() => history.push("/farmerPost/create")}>Post my Crop</button>
             </div> 
-            <div>
-
-            </div>
             {
                 farmerPosts.map(
                     (farmerPost) => {
@@ -70,7 +56,6 @@ export const FarmersList = () => {
                              <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
                              <button><Link to={`/farmerPosts/${farmerPost.id}`}> Edit</Link></button> 
                              <button type="submit" onClick={() => {deletePost(farmerPost.id)}}>Delete</button>
-                            
                             </div>
                         }
                         else{  //if not current user, will display post without delete button
@@ -81,7 +66,6 @@ export const FarmersList = () => {
                             {/* <div>lbs of {farmerPost.product?.name}</div> */}
                             <div>Price is ${farmerPost.price} per lbs.</div>
                             <div>You can contact me at: <Link>{farmerPost.user?.email}</Link></div>
-                            
                             </div>
                         }
                         

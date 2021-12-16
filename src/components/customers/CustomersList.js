@@ -37,7 +37,6 @@ export const CustomersList = () => {
                 method: "DELETE"
             })
             .then(getAllRequests)
-
         }
 
     return (
@@ -53,22 +52,15 @@ export const CustomersList = () => {
                             <div>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</div>
                             <div>Wanting to purchase: {customerRequest.product?.name}</div>
                             <div>I can be reached at: {customerRequest.user?.email}</div>
-                             {/* <div>lbs of {farmerPost.product?.name}</div> */}
-                             {/* <div>Cost is ${farmerPost.price} per lbs.</div> */}
-                             <div></div><button onClick={() => {deleteRequest(customerRequest.id)}}>Delete</button>
-                            
+                            <div></div><button onClick={() => {deleteRequest(customerRequest.id)}}>Delete</button>
                             </div>
                         }    
                     
-                
                         else{
                             return <div key={`customerRequest--${customerRequest.customer?.id}`}>
                             <div>{customerRequest.user?.firstName} { customerRequest.user?.lastName}</div>
                             <div>Wanting to purchase: {customerRequest.product?.name}</div>
                             <div>I can be reached at: <Link>{customerRequest.user?.email}</Link></div>
-                            {/* <div>lbs of {farmerPost.product?.name}</div> */}
-                            {/* <div>Cost is ${farmerPost.price} per lbs.</div> */}
-                        
                             </div>
                         }    
 
@@ -77,7 +69,6 @@ export const CustomersList = () => {
                 
             }
                 
-            
         </>
     )
 }

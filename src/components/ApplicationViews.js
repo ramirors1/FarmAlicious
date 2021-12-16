@@ -13,11 +13,6 @@ export const ApplicationViews = () => {
     return (
         <>
         <h1>FarmAlicious</h1>
-            {/* will render customer's list when customer link is clicked from the NavBar  */}
-            
-            {/* <Route exact path="/">  
-                <Home />
-            </Route> */}
 
             <Route exact path="/farmers">  
                 <FarmersList />
@@ -36,29 +31,8 @@ export const ApplicationViews = () => {
             </Route>
 
             <Route path="/customerRequest/create">
-            <CustomerForm />
+                <CustomerForm />
             </Route>
-
-            {/* <Route exact path="/employees">
-                <EmployeeList />
-            </Route>
-
-            <Route exact path="/employees/:employeeId(\d+)">
-                <Employee />
-            </Route>
-
-            <Route path="/ticket/create">
-                <TicketForm />
-            </Route>
-
-            <Route exact path="/tickets">
-                <TicketList />
-            </Route>
-
-            <Route exact path="/tickets/:ticketId(\d+)">
-                <Ticket />
-            </Route> */} 
-
         </>
     )
 }

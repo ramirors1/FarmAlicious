@@ -54,17 +54,15 @@ export const FarmerForm = () => {
                             copy.productId = evt.target.value
                             updateFarmerPost(copy)
                         }
-  
                     }>
                     <option key="product" value={0}>Choose a product</option>
   
                     {
                     products.map(
                         (product) => {
-                                
-                               return <option key="product" value={product.id}>
-                                {product.name}
-                                </option>
+                            return <option key="product" value={product.id}>
+                            {product.name}
+                            </option>
                         }
                     )
                     }
@@ -101,7 +99,6 @@ export const FarmerForm = () => {
                             updateFarmerPost(copy)
                         }
                     }
-
                         required autoFocus
                         type="text"
                         className="form-control"
