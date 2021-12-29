@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 
 export const CustomerRequest = () => {
-    const [customerRequests, updateRequest] = useState({})  // State variable for current ticket object
-    const [custmoers, syncCustomers] = useState([])  // State variable for array of employees
+    const [customerRequests, updateRequest] = useState({})  // State variable for current customer reequst object
+    const [syncCustomers] = useState([])  // State variable for array of customers
     const { customerRequestId } = useParams()  // Variable storing the route parameter
     // const [farmerPost, updateFarmerPost] = useState({});
     const [products, setProducts] = useState([]);

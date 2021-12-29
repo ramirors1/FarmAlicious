@@ -6,13 +6,11 @@ import { FarmerForm } from "./farmers/FarmerForm";
 import { CustomerForm } from "./customers/CustomerForm";
 import { FarmerPost } from "./farmers/FarmerPost";
 import { CustomerRequest } from "./customers/Customer";
-// import { TicketForm } from "./serviceTickets/TicketForm";
-// import { HireForm } from "./employees/HireEmployee";
 
 export const ApplicationViews = () => {
     return (
         <>
-        <h1>FarmAlicious</h1>
+        <h1 >FarmAlicious</h1>
 
             <Route exact path="/farmers">  
                 <FarmersList />

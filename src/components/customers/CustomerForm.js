@@ -54,13 +54,13 @@ export const CustomerForm = () => {
                         }
   
                     }>
-                    <option key="product" value={0}>Crop in Need</option>
+                    <option key="product.id" value={0}>Crop in Need</option>
   
                     {
                     products.map(
                         (product) => {
                                 
-                               return <option key="product" value={product.id}>
+                               return <option key={product.id} value={product.id}>
                                 {product.name}
                                 </option>
                         }

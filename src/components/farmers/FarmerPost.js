@@ -45,10 +45,10 @@ export const FarmerPost = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(updatedPost)
+            body: JSON.stringify(updatedPost) //json stringify converts objects into a string when data is being sent to a web server
         })
             .then(() => {
-                history.push("/farmers")
+                history.push("/farmers")  // renders farmers page on button click
             })
     }
 

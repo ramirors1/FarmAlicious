@@ -3,13 +3,13 @@ import { useHistory } from "react-router-dom"
 
 export const FarmerForm = () => {
 
-    const [farmerPost, updateFarmerPost] = useState({});
+    const [farmerPost, updateFarmerPost] = useState({}); //initial state is an object
     const [products, setProducts] = useState([]);
 
     const history = useHistory()
     const saveFarmerPost = (event) => {
         event.preventDefault()
-        const newFarmerPost = {
+        const newFarmerPost = {  //object that will be sent to the API
             productId: farmerPost.productId,
             quantity: parseInt(farmerPost.quantity),
             price: parseInt(farmerPost.price),
@@ -18,10 +18,10 @@ export const FarmerForm = () => {
 
         const fetchOption = {
             method: "POST",
-            headers: {
+            headers: {  //without headers, json won't work correctly
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newFarmerPost)
+            body: JSON.stringify(newFarmerPost)  //sends the body of the request as a string
         }
     return fetch("http://localhost:8088/farmerPosts", fetchOption)
         .then(() => {
@@ -50,9 +50,9 @@ export const FarmerForm = () => {
                     <select
                     onChange={
                         (evt) => {
-                            const copy = {...farmerPost}
-                            copy.productId = evt.target.value
-                            updateFarmerPost(copy)
+                            const copy = {...farmerPost}  //spread operator that copies the existing state
+                            copy.productId = evt.target.value  //changes copied state with current updates
+                            updateFarmerPost(copy)  //updated state
                         }
                     }>
                     <option key="product" value={0}>Choose a product</option>
@@ -60,7 +60,7 @@ export const FarmerForm = () => {
                     {
                     products.map(
                         (product) => {
-                            return <option key="product" value={product.id}>
+                            return <option key={product.id} value={product.id}>
                             {product.name}
                             </option>
                         }
