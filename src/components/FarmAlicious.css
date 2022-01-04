@@ -1,9 +1,18 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
-
+@import url("https://fonts.googleapis.com/css?family=Sofia&effect=fire");
 /*Typography
 --------------------------------------------------------------*/
-body,
+/* body, */
+body {
+  background-image: url("https://wallpapercave.com/wp/wp1987155.jpg"); 
+  /* display: flex;
+  flex-wrap: wrap;  */
+  background-size: cover;
+  /* background-attachment: fixed; */
+  background-repeat: no-repeat;
+  /* height: 100%; */
+}
+
 button,
 input,
 select,
@@ -15,9 +24,26 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: "Sofia", serif;
   letter-spacing: 2px;
 }
+/* #gradient {
+  background-image: linear-gradient(90deg,
+  rgba(94, 114, 235, 1) 0%, rgba(255, 145, 144, 1) 56%,
+  rgba(254, 193, 149, 1) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+
+    animation: move is infinite;
+}
+
+@keyframes move {
+  50% {
+  background-image: linear-gradient(262deg,
+  rgba(94, 114, 235, 1) 0%, rgba(255,145, 144, 1), 56%
+  rgba(254, 193, 149, 1) 100%);
+  }
+} */
 
 p {
   margin-bottom: 1.5em;

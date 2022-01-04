@@ -3,6 +3,16 @@
     color: blue;
 }
 
+/* body {
+    background-image: url("https://wallpapercave.com/wp/wp1987155.jpg"); 
+    /* display: flex;
+    flex-wrap: wrap;  */
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+    /* background-repeat: no-repeat; */
+    /* height: 100%; */
+/* } */ 
+
 fieldset {
     min-width: 0;
     padding: 1rem 0;
@@ -64,4 +74,16 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
+}
+
+.signIn {
+    background: none;
+    border-width: 10px;
+    border-color: saddlebrown;
+    border-radius: 5px;
+    padding-inline: 3px;
+    padding-block: 2px;
+    font-size: 5vmin;
+    font-weight: bold;
+    color: blue;
 }
